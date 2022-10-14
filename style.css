@@ -1,0 +1,280 @@
+*{padding: 0; margin: 0; box-sizing: border-box;}
+
+:root{
+    --ff-heading: 'Staatliches', cursive;
+    --ff-text:'Roboto', sans-serif;
+    --ff-pmain:'Palanquin', sans-serif;
+
+    --bc-header:hsl(218, 17%, 62%);
+    --bc-body:hsl(233, 100%, 97%);
+
+    --fs-body:2rem;
+    --fs-heading:4rem;
+
+
+    font-size: 62.5%;
+}
+
+body{
+    font-size:var(--fs-body);
+    background-color:var(--bc-body);
+}
+
+
+header{
+    width: 100%;
+    height: 27.9rem;
+
+    background-color: var(--bc-header);
+    text-align: center;
+
+    grid-area:header;
+
+    animation: downtoup .7s backwards;
+}
+
+header p{
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 2.0rem;
+    color: #FFFFFF;
+
+
+    font-family: var(--ff-text);
+}
+
+header img{
+    margin:3.2rem 0;
+}
+
+header h1{
+    font-family: var(--ff-heading);
+    color:#FFFFFF;
+    font-size: var(--fs-heading);  
+    font-weight: 400;
+    line-height: 3.4rem;
+    letter-spacing: 0.05rem;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    
+    background-color: hsl(275, 18%, 79%);
+
+    padding: .7rem 0;
+}
+
+
+main{
+    max-width: 32rem;
+
+    margin: 0 auto;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 3.6rem;
+    
+    grid-area: main;
+}
+
+main div:nth-child(2){
+    grid-area: A;
+    animation: lefttoright .6s .3s backwards;
+}
+
+main div:nth-child(3){
+    grid-area: B;
+    animation: lefttoright .6s .5s backwards;
+}
+
+main div:nth-child(4){
+    grid-area: C;
+    animation: lefttoright .6s .7s backwards;
+
+}
+
+main div:nth-child(5){
+    grid-area: D;
+    animation: lefttoright .6s .9s backwards;
+
+}
+
+main div:nth-child(6){
+    grid-area: E;
+    animation: lefttoright .6s 1s backwards;
+
+}
+
+main div:nth-child(7){
+    grid-area: F;
+    animation: lefttoright .6s 1.1s backwards;
+
+}
+
+
+.text p{
+    max-width: 30.5rem;
+    margin:1.4rem 0 6.4rem;
+
+    text-align: center;
+
+    font-family: var(--ff-pmain);
+    font-weight: 400;
+    line-height: 1.5rem;
+
+    animation: downtoup .7s .2s backwards;
+}
+
+.card img{
+    max-width: 32rem;
+
+    filter: brightness(1) saturate(1.4);
+}
+
+.card{
+    position: relative;
+}
+
+.card h2{
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+
+    line-height: 3.4rem;
+    letter-spacing: 0.05em;
+    font-weight: 400;
+    font-family: var(--ff-heading);
+    font-size: var(--fs-body);
+    color: hsl(232, 17%, 35);
+
+    background-color: hsl(312, 91%, 96%);
+    border-radius: 2rem;
+    padding: 0 2.4rem;
+    
+}
+
+footer{
+    grid-area: footer;
+}
+
+
+/* AT RULES */
+
+@media (min-width:900px){
+
+
+    body{
+        display: grid;
+        grid-template-areas: "header main"
+        "header footer";
+
+        max-width: 128rem;
+        max-height: 72rem;
+    }
+
+    header{
+        max-width: 37.7rem;
+        height: 100vh;
+    }
+
+    header p{ 
+        max-width: 27.5rem;
+        margin: 3.2rem auto 0;
+        text-align: center;
+    }
+
+    main{
+        display: grid;
+        grid-template-areas: "A C B"
+        "E C F"
+        "E D F";
+        align-content: center;
+        gap:3.2rem;
+
+        padding: 6.3rem 0 0 3.2rem;
+
+        max-width: 72.4rem;
+        
+
+    }
+
+    .peq img{
+        width: 22rem;
+        height: 15rem;
+        border-radius: 2rem;
+    }
+
+    .gra img{
+        width: 22rem;
+        height: 35rem;
+        border-radius: 2rem;
+    }
+
+    .text , h2{
+        display: none;
+    }
+
+    footer{
+        max-width: 59.2rem;
+        text-align: center;
+        margin: 5rem auto 0;
+        font-family: 'Open Sans';
+
+        font-weight: 400;
+        font-size: 1.4rem;
+        line-height: 2.8rem;
+
+        color: #4A4E69;
+
+        animation: downtoup .7s backwards;
+
+    }
+
+    footer a{
+        text-decoration: none;
+        font-weight: bold;
+        color: #4A4E69;
+
+    }
+
+}
+
+@media (max-width:900px){
+
+    main div:nth-child(2), main div:nth-child(6){
+        display: none;
+    }
+
+    footer{
+        display: none;
+    }
+
+    header p{
+        display: none;
+    }
+}
+
+@keyframes downtoup{
+
+    0%{
+        opacity: 0;
+        transform: translateY(-3rem);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes lefttoright{
+    
+    0%{
+        opacity: 0;
+        transform: translateX(-3rem);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
